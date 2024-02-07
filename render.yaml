@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: blueprint_platform
+    region: frankfurt
+    runtime: node
+    repo: https://github.com/alexblch/blueprints.git
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: blueprint-db
+          property: connectionString
+
+database:
+  - name: blueprint-db
+    type: postgres
+    region: frankfurt
+    databaseName: blueprint
+    user: cloud
+    plan: free
