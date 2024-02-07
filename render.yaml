@@ -15,7 +15,6 @@ services:
 
 databases:
   - name: blueprint-db
-    type: postgres
     region: frankfurt
     databaseName: blueprint
     user: cloud
